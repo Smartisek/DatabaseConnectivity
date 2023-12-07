@@ -40,7 +40,8 @@ public class Connector {
         ArrayList<String> capitanList = new ArrayList<String>();
 
             System.out.println("SQL: select * from capitan");
-            System.out.println("capitan_id |" + " " + "first_name |" + " " + "last_name |" + " " + "date_of_birth |" + " " + "phone_number |" + " " + "license_number");
+            System.out.println("capitan_id |" + " " + "first_name |" + " " + "last_name |" + " " + "date_of_birth |"
+                    + " " + "phone_number |" + " " + "license_number");
         while (result.next()) {
             System.out.println(result.getInt(1) + " " + result.getString(2) + " "
                     + result.getString(3) + " " + result.getDate(4) + " " + result.getString(5) + " "
