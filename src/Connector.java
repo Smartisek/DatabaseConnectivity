@@ -11,31 +11,7 @@ public class Connector {
     public static void main(String[] args) throws SQLException {
         getCapitan();
         passengersToNewYork();
-//        String dbUrl= "jdbc:mysql://localhost:3306/gateocean";
-//        String username = "domal";
-//        String password = "";
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//            Connection connection = DriverManager.getConnection(dbUrl, username, password);
-//
-//            Statement statement = connection.createStatement();
-//
-//            ResultSet resultSet = statement.executeQuery("select * from capitan");
-//
-//            System.out.println("SQL: Dselect * from capitan");
-//            System.out.println("passenger_id |" + " " + "first_name |" + " " + "last_name |" + " " + "date_of_birth |" + " " + "phone_number |" + " " + "license_number");
-//            while (resultSet.next()){
-//
-//                System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2) + " "
-//                        +resultSet.getString(3) + " " + resultSet.getDate(4) + " " + resultSet.getString(5) + " "
-//                        + resultSet.getString(6));
-//            }
-//            connection.close();
-//        }
-//        catch (Exception e){
-//            System.out.println(e);
-//        }
+        insert();
     }
 
     public static Connection connect(){
@@ -108,5 +84,23 @@ public class Connector {
     }catch (Exception e){System.out.println(e);}
         return null;
     }
+
+    public static void insert() throws SQLException{
+        final Integer var1 = 4;
+        final String var2 = "Waterslide";
+        final String var3 = "589 Rock Road, London, England";
+        final String var4 = "waterslide@gmail.com";
+        try{
+            Connection connection = connect();
+            PreparedStatement insert = connection.prepareStatement("INSERT INTO cruisecompany VALUES (4,var2, var3, var4) ");
+
+            insert.executeUpdate();
+        } catch (Exception e){
+            System.out.println(e);
+        } finally {
+            System.out.println("Insert complete");
+        }
+    }
+
 }
 
